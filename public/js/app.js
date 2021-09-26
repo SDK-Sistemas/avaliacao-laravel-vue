@@ -2174,7 +2174,11 @@ window.Vue = __webpack_require__(/*! vue */ "./node_modules/vue/dist/vue.esm.js"
 // const files = require.context('./', true, /\.vue$/i)
 // files.keys().map(key => Vue.component(key.split('/').pop().split('.')[0], files(key).default))
 
-Vue.component('example-component', __webpack_require__(/*! ./components/FormSubscription.vue */ "./resources/js/components/FormSubscription.vue")["default"]);
+Vue.component('form-subscription', __webpack_require__(/*! ./components/FormSubscription.vue */ "./resources/js/components/FormSubscription.vue")["default"]);
+/**
+ * TODO Diferencial, criar componente vue de like e deslike no post, utilizar as rotas /like e /dislike já criadas.
+ */
+
 /**
  * Next, we will create a fresh Vue application instance and attach it to
  * the page. Then, you may begin adding components to this application

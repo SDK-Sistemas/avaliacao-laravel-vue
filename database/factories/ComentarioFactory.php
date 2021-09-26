@@ -3,6 +3,7 @@
 namespace Database\Factories;
 
 use App\Models\Comentario;
+use App\Models\User;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
 class ComentarioFactory extends Factory
@@ -22,7 +23,9 @@ class ComentarioFactory extends Factory
     public function definition()
     {
         return [
-            //
+            'user_id' => User::factory()->create(),
+            'body' => $this->faker->text(1600),
+            'review' => random_int(0,10)
         ];
     }
 }

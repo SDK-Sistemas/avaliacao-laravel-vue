@@ -21,14 +21,14 @@
     <script src="{{ mix('js/app.js') }}" defer></script>
 </head>
 <body class="antialiased">
-    <div id="app" class="app">
-        <div class="container">
-             <span class="d-block text-center display-1 my-5">
-                SDK blog
-            </span>
-            @yield('content')
-        </div>
+<div id="app" class="app">
+    <div class="container">
+        <span class="d-block text-center display-1 my-5">
+           SDK blog
+        </span>
+        @yield('content')
     </div>
-    <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+</div>
+<script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 </body>
 </html>

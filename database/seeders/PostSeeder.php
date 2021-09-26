@@ -2,6 +2,7 @@
 
 namespace Database\Seeders;
 
+use App\Models\Comentario;
 use App\Models\Post;
 use App\Models\Tag;
 use Illuminate\Database\Seeder;
@@ -17,28 +18,19 @@ class PostSeeder extends Seeder
     public function run()
     {
         $posts = Post::factory()
-                     ->count(50)
-                     ->create();
+            ->count(50)
+            ->create();
 
-        /**
-         * Tags
-         */
-        $tagVue = Tag::firstWhere('name', 'vue');
-
-        foreach ($posts->take(10) as $post){
-            DB::table('post_tag')->insert([
-              'post_id' => $post->id,
-              'tag_id' => $tagVue->id
-            ]);
-        }
-
-        $tags = Tag::where('name', '!=', 'vue')->get();
+        $tags = Tag::all();
 
         foreach ($posts as $post){
+            /** Tags */
             DB::table('post_tag')->insert([
               'post_id' => $post->id,
               'tag_id' => $tags->random()->id
             ]);
+            /** Comentários */
+            Comentario::factory()->count(random_int(1,5))->create(['post_id' => $post->id]);
         }
     }
 }

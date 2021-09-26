@@ -15,6 +15,7 @@ class CreateComentariosTable extends Migration
     {
         Schema::create('comentarios', function (Blueprint $table) {
             $table->id();
+            $table->foreignId('post_id')->constrained();
             $table->foreignId('user_id')->constrained();
             $table->text('body');
             $table->integer('review')->default(0);

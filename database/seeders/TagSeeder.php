@@ -14,8 +14,6 @@ class TagSeeder extends Seeder
      */
     public function run()
     {
-        Tag::create(['name' => 'vue']);
-
         Tag::factory()->count(10)->create();
     }
 }

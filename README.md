@@ -1,64 +1,74 @@
-<p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400"></a></p>
 
-<p align="center">
-<a href="https://travis-ci.org/laravel/framework"><img src="https://travis-ci.org/laravel/framework.svg" alt="Build Status"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/dt/laravel/framework" alt="Total Downloads"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/v/laravel/framework" alt="Latest Stable Version"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
-</p>
+# Avaliação 
 
-## About Laravel
+### Tecnologias
 
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
++ Laravel 8
++ Vue 2.0
++ Bootstrap 4.0
++ PHP ^7.4 | 8.0
 
-- [Simple, fast routing engine](https://laravel.com/docs/routing).
-- [Powerful dependency injection container](https://laravel.com/docs/container).
-- Multiple back-ends for [session](https://laravel.com/docs/session) and [cache](https://laravel.com/docs/cache) storage.
-- Expressive, intuitive [database ORM](https://laravel.com/docs/eloquent).
-- Database agnostic [schema migrations](https://laravel.com/docs/migrations).
-- [Robust background job processing](https://laravel.com/docs/queues).
-- [Real-time event broadcasting](https://laravel.com/docs/broadcasting).
+### Banco de dados
 
-Laravel is accessible, powerful, and provides tools required for large, robust applications.
+![diagrama UML](./diagrama_avaliação.png)
 
-## Learning Laravel
+---
 
-Laravel has the most extensive and thorough [documentation](https://laravel.com/docs) and video tutorial library of all modern web application frameworks, making it a breeze to get started with the framework.
+## Objetivos
 
-If you don't feel like reading, [Laracasts](https://laracasts.com) can help. Laracasts contains over 1500 video tutorials on a range of topics including Laravel, modern PHP, unit testing, and JavaScript. Boost your skills by digging into our comprehensive video library.
+### Listagem dos Posts na página inicial
 
-## Laravel Sponsors
+A página inicial ([welcome](./resources/views/welcome.blade.php)) possui uma lista onde são exibidos: 
++ Os 3 últimos posts cadastrados;
++ Os 3 posts mais visualizados;
++ As 3 tags que possuem mais visualizações (Soma da visualização dos posts marcados com a tag);
 
-We would like to extend our thanks to the following sponsors for funding Laravel development. If you are interested in becoming a sponsor, please visit the Laravel [Patreon page](https://patreon.com/taylorotwell).
+Substituir o código HTML com dados do banco para as 3 listas.
 
-### Premium Partners
+Cada post deve apresentar a lista de tags, quantidade de visualizações, quantidade de comentários
 
-- **[Vehikl](https://vehikl.com/)**
-- **[Tighten Co.](https://tighten.co)**
-- **[Kirschbaum Development Group](https://kirschbaumdevelopment.com)**
-- **[64 Robots](https://64robots.com)**
-- **[Cubet Techno Labs](https://cubettech.com)**
-- **[Cyber-Duck](https://cyber-duck.co.uk)**
-- **[Many](https://www.many.co.uk)**
-- **[Webdock, Fast VPS Hosting](https://www.webdock.io/en)**
-- **[DevSquad](https://devsquad.com)**
-- **[Curotec](https://www.curotec.com/services/technologies/laravel/)**
-- **[OP.GG](https://op.gg)**
-- **[CMS Max](https://www.cmsmax.com/)**
-- **[WebReinvent](https://webreinvent.com/?utm_source=laravel&utm_medium=github&utm_campaign=patreon-sponsors)**
+### Visualização dos Posts
 
-## Contributing
+Criar uma tela que mostre apenas o título e corpo do Post e a lista de comentários.
+Incrementar o atributo "views" da tabela Post ao acessar a url.
 
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](https://laravel.com/docs/contributions).
+### Inscrição de endereços eletrônicos para recebimento de Posts.
 
-## Code of Conduct
+O usuário poderá ser inscrever para receber Posts marcados com a tag escolhida
 
-In order to ensure that the Laravel community is welcoming to all, please review and abide by the [Code of Conduct](https://laravel.com/docs/contributions#code-of-conduct).
++ Criar uma tabela no banco de dados para armazenar as inscrições cadastradas;
++ Utilizar o formulário no componente [FormSubscription](./resources/js/components/FormSubscription.vue "Componente Vue");
++ Criar o processo de inscrição (rotas, models, controllers, validações, etc.);
++ O formulário deve passar por uma validação no servidor onde:
+  + O endereço eletrônico é obrigatório e deve ser válido, sendo permitido apenas uma inscrição por endereço;
+  + O campo tag é obrigatório e o ID deve existir no banco;
++ Automatizar o processo de envio da notificação diariamente às 10h da manhã;
++ Os inscritos receberão um link de um post aleatório que possua a tag escolhida por eles no ato da inscrição.
 
-## Security Vulnerabilities
 
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell via [taylor@laravel.com](mailto:taylor@laravel.com). All security vulnerabilities will be promptly addressed.
+---
 
-## License
+## Diferencial
 
-The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+Tarefas adicionais 
+
+### Componente Vue para likes e dislikes no Post
+
+  + Adicionar o campo likes na tabela Post
+  + Na tela de visualização do post, inserir um componente vue que utilize as rotas /like e /deslike
+  + Ao dar like ou deslike, desabilitar o botão e modificar o estilo (Ex: Deixar azul se deu like e vermelho se for dislike)
+  + Mostrar a quantidade de likes do post e incrementar ou decrementar quando o usuário fizer a ação.
+
+### Utilizar eager loading
+
+  + Trazer todos os dados do controller, evitar acessar relacionamentos dentro do blade.
+
+---
+
+## Observações
+
+Rodar o comando abaixo para carregar o banco com dados de teste.
+
+    php artisan migrate --seed
+
+Algumas tarefas estão marcadas no código com **TODO**, podem ser visualizadas utilizando a aba _todos_ do phpstorm ou a extensão [_todo-tree_](https://marketplace.visualstudio.com/items?itemName=Gruntfuggly.todo-tree) do VSCODE

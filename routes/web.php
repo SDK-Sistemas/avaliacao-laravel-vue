@@ -15,6 +15,8 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
+
+
 Route::get('/', [PostController::class, 'index'])
     ->name('welcome');
 
@@ -27,4 +29,4 @@ Route::post('/posts/{post}/like', [PostController::class, 'like'])
 Route::post('/posts/{post}/dislike', [PostController::class, 'dislike'])
     ->name('post.dislike');
 
-// Criar rota post /subscribe
+// TODO Criar rota /subscribe para realizar uma nova inscrição.
