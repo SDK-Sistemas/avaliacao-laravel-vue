@@ -20,7 +20,7 @@
 
 A página inicial ([welcome](./resources/views/welcome.blade.php)) possui uma lista onde são exibidos: 
 + Os 3 últimos posts cadastrados;
-+ Os 3 posts mais visualizados;
++ Os 3 posts mais comentados;
 + As 3 tags que possuem mais visualizações (Soma da visualização dos posts marcados com a tag);
 
 Substituir o código HTML com dados do banco para as 3 listas.
