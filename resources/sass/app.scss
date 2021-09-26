@@ -6,3 +6,33 @@
 
 // Bootstrap
 @import '~bootstrap/scss/bootstrap';
+
+
+body{
+  background: #00121c;
+  height: 100vh;
+  color: white;
+}
+
+.app{
+  padding: 20px 0;
+}
+
+.card{
+  padding: 16px;
+  background: #002838;
+}
+
+.card-post{
+  border-radius: 5px;
+  padding: 16px;
+  background: #003b52;
+}
+
+.line-clamp-2 {
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
