@@ -62,7 +62,7 @@
 				        Swal.fire({
 					        icon: 'success',
 					        title: 'Sucesso!',
-					        text: 'Seu e-mail foi cadastrado, você receberá notificações todos os sábados às 10h',
+					        text: 'Seu e-mail foi cadastrado, você receberá notificações todos os dias às 10h',
 				        })
 				        event.target.reset()
 			        })

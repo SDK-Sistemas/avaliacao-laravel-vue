@@ -24,9 +24,9 @@ Route::resource('/posts', PostController::class)
     ->only(['show']);
 
 Route::post('/posts/{post}/like', [PostController::class, 'like'])
-    ->name('post.like');
+    ->name('posts.like');
 
 Route::post('/posts/{post}/dislike', [PostController::class, 'dislike'])
-    ->name('post.dislike');
+    ->name('posts.dislike');
 
 // TODO Criar rota /subscribe para realizar uma nova inscrição.
